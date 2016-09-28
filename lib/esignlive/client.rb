@@ -1,8 +1,8 @@
-require 'esignlivefairy/calls/packages'
+require 'esignlive/api/calls'
 
-module EsignliveFairy
-  class API
-    include EsignliveFairy::Calls::Packages
+module ESignLive
+  class Client
+    include ESignLive::API::Calls
 
     attr_reader :headers
 

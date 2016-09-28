@@ -1,16 +1,16 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "esignlivefairy/version"
+require "esignlive/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "esignlivefairy"
-  s.version     = EsignliveFairy::VERSION
+  s.name        = "esignlive"
+  s.version     = ESignLive::VERSION
   s.authors     = ["Bo Jacobson"]
   s.email       = ["boj@fair.com"]
-  s.summary     = "Esignlivefairy..."
-  s.description = "Esignlivefairy..."
+  s.summary     = "A Ruby client for eSignLive's REST API"
+  s.description = "A Ruby client for eSignLive's REST API"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]

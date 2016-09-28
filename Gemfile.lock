@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    esignlivefairy (0.1.0)
+    esignlive (0.1.0)
       httparty
       rails (~> 5.0.0)
 
@@ -132,7 +132,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  esignlivefairy!
+  esignlive!
   rspec
 
 BUNDLED WITH
