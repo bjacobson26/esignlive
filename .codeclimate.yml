@@ -11,6 +11,8 @@ engines:
     enabled: true
     exclude_fingerprints:
         - 88fe913ae90e58ac1beb2f8a27eb5520
+        - bd3810225fba5c27540f30702b138804
+        - bd3810225fba5c27540f30702b138804
   rubocop:
     enabled: false
 ratings:
