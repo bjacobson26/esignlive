@@ -1,4 +1,7 @@
 #eSignLive Client
+
+[![Build Status](https://travis-ci.org/bjacobson26/esignlive.svg?branch=master)](https://travis-ci.org/bjacobson26/esignlive)
+
 ## Usage
 
 ###Create a client
