@@ -9,6 +9,8 @@ engines:
       - ruby
   fixme:
     enabled: true
+    exclude_fingerprints:
+        - 88fe913ae90e58ac1beb2f8a27eb5520
   rubocop:
     enabled: false
 ratings:
