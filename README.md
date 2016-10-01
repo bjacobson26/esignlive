@@ -4,15 +4,21 @@
 [![Code Climate](https://codeclimate.com/github/bjacobson26/esignlive/badges/gpa.svg)](https://codeclimate.com/github/bjacobson26/esignlive)
 [![Gem Version](https://badge.fury.io/rb/esignlive.svg)](https://badge.fury.io/rb/esignlive)
 
-This currently only works in eSignLive's sandbox environment. Will update soon...
-
 ## Usage
 
 ###Create a client
 
 ```ruby
-client = ESignLive::Client.new(api_key: your_api_key)
+client = ESignLive::Client.new(api_key: your_api_key, environment: 'sandbox')
 ```
+
+For production:
+
+```ruby
+client = ESignLive::Client.new(api_key: your_api_key, environment: 'production')
+```
+
+
 ###Make some API calls
 
 #####Get all packages in your account
