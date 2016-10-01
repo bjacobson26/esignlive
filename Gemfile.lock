@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    esignlive (0.1.0)
+    esignlive (0.1.1)
       httparty (~> 0.14.0)
 
 GEM

@@ -3,10 +3,6 @@ require 'httparty'
 module ESignLive
   module API
     module Calls
-      URL = "https://sandbox.esignlive.com/api/packages"
-      AUTH_URL = "https://sandbox.esignlive.com/api/authenticationTokens"
-      SENDER_AUTH_URL = "https://sandbox.esignlive.com/api/senderAuthenticationTokens"
-      SIGNER_AUTH_URL = "https://sandbox.esignlive.com/api/signerAuthenticationTokens"
       PACKAGE_DEFAULTS = {
         name: "New Package #{Time.now}",
         language: "en",
@@ -23,7 +19,7 @@ module ESignLive
 
       def authentication_token(package_id:)
         ::HTTParty.post(
-          AUTH_URL,
+          "#{url}/authenticationTokens",
           body: { packageId: package_id }.to_json,
           headers: headers
         ).parsed_response
@@ -31,7 +27,7 @@ module ESignLive
 
       def sender_authentication_token(package_id:)
         ::HTTParty.post(
-          SENDER_AUTH_URL,
+          "#{url}/senderAuthenticationTokens",
           body: { packageId: package_id }.to_json,
           headers: headers
         ).parsed_response
@@ -39,7 +35,7 @@ module ESignLive
 
       def signer_authentication_token(signer_id:, package_id:)
         ::HTTParty.post(
-          SIGNER_AUTH_URL,
+          "#{url}/signerAuthenticationTokens",
           body: {
             signerId: signer_id,
             sipackageId: package_id
@@ -50,27 +46,27 @@ module ESignLive
 
       def get_packages
         ::HTTParty.get(
-          URL,
+          "#{url}/packages",
           headers: headers
         ).parsed_response
       end
 
       def get_package(package_id:)
         ::HTTParty.get(
-          "#{URL}/#{package_id}",
+          "#{url}/packages/#{package_id}",
           headers: headers
         ).parsed_response
       end
 
       def get_signing_status(package_id:)
         ::HTTParty.get(
-          "#{URL}/#{package_id}/signingStatus",
+          "#{url}/packages/#{package_id}/signingStatus",
           headers: headers
         ).parsed_response
       end
 
       def get_document(package_id:, document_id:, pdf: false)
-        endpoint = "#{URL}/#{package_id}/documents/#{document_id}"
+        endpoint = "#{url}/packages/#{package_id}/documents/#{document_id}"
         pdf ? url = "#{endpoint}/pdf" : url = endpoint
         ::HTTParty.get(
           url,
@@ -80,14 +76,14 @@ module ESignLive
 
       def get_roles(package_id:)
         ::HTTParty.get(
-          "#{URL}/#{package_id}/roles",
+          "#{url}/packages/#{package_id}/roles",
           headers: headers
         ).parsed_response["results"]
       end
 
       def get_role(package_id:, role_id:)
         ::HTTParty.get(
-          "#{URL}/#{package_id}/roles/#{role_id}",
+          "#{url}/packages/#{package_id}/roles/#{role_id}",
           headers: headers
         ).parsed_response
       end
@@ -103,7 +99,7 @@ module ESignLive
           ]
         }
         ::HTTParty.put(
-         "#{URL}/#{package_id}/roles/#{role_id}",
+         "#{url}/packages/#{package_id}/roles/#{role_id}",
           body: body.to_json,
           headers: headers
         ).parsed_response
@@ -122,7 +118,7 @@ module ESignLive
           body.merge!(sender_hash)
         end
         ::HTTParty.post(
-          URL,
+          "#{url}/packages",
           body: body.to_json,
           headers: headers
         ).parsed_response
@@ -130,7 +126,7 @@ module ESignLive
 
       def create_package_from_template(template_id:, opts: {})
         ::HTTParty.post(
-          "https://sandbox.esignlive.com/api/packages/#{template_id}/clone",
+          "#{url}/packages/#{template_id}/clone",
           headers: headers,
           body: package_hash(opts).to_json
         ).parsed_response
@@ -138,7 +134,7 @@ module ESignLive
 
       def send_package(package_id:)
         ::HTTParty.post(
-          "#{URL}/#{package_id}",
+          "#{url}/packages/#{package_id}",
           body: { status: "SENT" }.to_json,
           headers: headers
         )
@@ -147,17 +143,19 @@ module ESignLive
 
       def remove_document_from_package(document_id:, package_id:)
         ::HTTParty.delete(
-          "#{URL}/#{package_id}/documents/#{document_id}",
+          "#{url}/packages/#{package_id}/documents/#{document_id}",
           headers: headers
         ).parsed_response
       end
 
       def signing_url(package_id:, role_id:)
         ::HTTParty.get(
-          "#{URL}/#{package_id}/roles/#{role_id}/signingUrl",
+          "#{url}/packages/#{package_id}/roles/#{role_id}/signingUrl",
           headers: headers
         ).parsed_response["url"]
       end
+
+      private
 
       def package_hash(opts)
         {
