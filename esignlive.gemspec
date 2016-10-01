@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Bo Jacobson"]
   s.email       = ["bjacobson26@gmail.com"]
   s.summary     = "A Ruby client for eSignLive's REST API"
-  s.description = "A Ruby interface for eSignLive's REST API"
+  s.description = "A Ruby interface to the eSignLive REST API"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
