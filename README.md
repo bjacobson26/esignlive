@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/bjacobson26/esignlive.svg?branch=master)](https://travis-ci.org/bjacobson26/esignlive)
 [![Code Climate](https://codeclimate.com/github/bjacobson26/esignlive/badges/gpa.svg)](https://codeclimate.com/github/bjacobson26/esignlive)
 
+This currently only works in eSignLive's sandbox environment. Will update soon...
+
 ## Usage
 
 ###Create a client
