@@ -1,5 +1,6 @@
 #eSignLive Client
 
+[![Gem Version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=rb&type=6&v=0.1.3&x2=0)](https://badge.fury.io/rb/esignlive)
 [![Build Status](https://travis-ci.org/bjacobson26/esignlive.svg?branch=master)](https://travis-ci.org/bjacobson26/esignlive)
 [![Code Climate](https://codeclimate.com/github/bjacobson26/esignlive/badges/gpa.svg)](https://codeclimate.com/github/bjacobson26/esignlive)
 ## Usage
