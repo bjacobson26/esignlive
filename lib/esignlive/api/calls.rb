@@ -38,7 +38,7 @@ module ESignLive
           "#{url}/signerAuthenticationTokens",
           body: {
             signerId: signer_id,
-            sipackageId: package_id
+            packageId: package_id
           }.to_json,
           headers: headers
         ).parsed_response
