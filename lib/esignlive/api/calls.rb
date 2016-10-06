@@ -133,12 +133,12 @@ module ESignLive
       end
 
       def send_package(package_id:)
-        ::HTTParty.post(
+        response = ::HTTParty.post(
           "#{url}/packages/#{package_id}",
           body: { status: "SENT" }.to_json,
           headers: headers
         )
-        true
+        { code: response["code"], message: response["message"] }
       end
 
       def remove_document_from_package(document_id:, package_id:)
