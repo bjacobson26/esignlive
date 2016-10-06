@@ -236,11 +236,14 @@ module ESignLive
         let(:expected_url) do
           'https://sandbox.esignlive.com/api/packages/12345a'
         end
+        let(:response) do
+          { code: 200 }
+        end
         let(:expected_body) { { status: "SENT" }.to_json }
         it 'POST /packages/:package_id' do
           expect(HTTParty).to receive(:post)
             .with(expected_url, body: expected_body, headers: expected_headers)
-              .and_return(http_response)
+              .and_return(response)
 
           client.send_package(package_id: "12345a")
         end
