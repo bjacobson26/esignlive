@@ -20,7 +20,7 @@ client = ESignLive::Client.new(api_key: your_api_key, environment: 'production')
 
 ### Make some API calls
 
-#####Get all packages in your account
+##### Get all packages in your account
 ```ruby
 packages = client.get_packages
 ```
